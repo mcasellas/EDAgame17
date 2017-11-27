@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE01B5281FC81B8B00E746A4 /* AImcasellas.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE01B5271FC81B8B00E746A4 /* AImcasellas.cc */; };
+		AE6AF13C1FCC179700F91E1C /* Structs.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1271FCC179500F91E1C /* Structs.cc */; };
+		AE6AF13D1FCC179700F91E1C /* Board.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF12A1FCC179500F91E1C /* Board.cc */; };
+		AE6AF13E1FCC179700F91E1C /* Random.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF12C1FCC179500F91E1C /* Random.cc */; };
+		AE6AF13F1FCC179700F91E1C /* Main.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF12D1FCC179500F91E1C /* Main.cc */; };
+		AE6AF1401FCC179700F91E1C /* Registry.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF12E1FCC179500F91E1C /* Registry.cc */; };
+		AE6AF1411FCC179700F91E1C /* Action.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1301FCC179600F91E1C /* Action.cc */; };
+		AE6AF1421FCC179700F91E1C /* Game.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1311FCC179600F91E1C /* Game.cc */; };
+		AE6AF1431FCC179700F91E1C /* Player.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1331FCC179600F91E1C /* Player.cc */; };
+		AE6AF1441FCC179700F91E1C /* State.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1351FCC179600F91E1C /* State.cc */; };
+		AE6AF1451FCC179700F91E1C /* Info.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1381FCC179700F91E1C /* Info.cc */; };
+		AE6AF1461FCC179700F91E1C /* Settings.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1391FCC179700F91E1C /* Settings.cc */; };
+		AE6AF1471FCC179700F91E1C /* Utils.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF13A1FCC179700F91E1C /* Utils.cc */; };
+		AE6AF1491FCC17AC00F91E1C /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1481FCC17AC00F91E1C /* Makefile */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE01B51B1FC81B5D00E746A4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AE01B51D1FC81B5D00E746A4 /* Joc EDA 2017 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Joc EDA 2017"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE01B5271FC81B8B00E746A4 /* AImcasellas.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AImcasellas.cc; path = ../../AImcasellas.cc; sourceTree = "<group>"; };
+		AE01B5291FC81BC300E746A4 /* AIDemo.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIDemo.cc; path = ../../AIDemo.cc; sourceTree = "<group>"; };
+		AE6AF1251FCC179500F91E1C /* Board.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Board.hh; path = ../../Board.hh; sourceTree = "<group>"; };
+		AE6AF1261FCC179500F91E1C /* Structs.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Structs.hh; path = ../../Structs.hh; sourceTree = "<group>"; };
+		AE6AF1271FCC179500F91E1C /* Structs.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Structs.cc; path = ../../Structs.cc; sourceTree = "<group>"; };
+		AE6AF1281FCC179500F91E1C /* Player.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Player.hh; path = ../../Player.hh; sourceTree = "<group>"; };
+		AE6AF1291FCC179500F91E1C /* Utils.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Utils.hh; path = ../../Utils.hh; sourceTree = "<group>"; };
+		AE6AF12A1FCC179500F91E1C /* Board.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Board.cc; path = ../../Board.cc; sourceTree = "<group>"; };
+		AE6AF12B1FCC179500F91E1C /* Action.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Action.hh; path = ../../Action.hh; sourceTree = "<group>"; };
+		AE6AF12C1FCC179500F91E1C /* Random.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Random.cc; path = ../../Random.cc; sourceTree = "<group>"; };
+		AE6AF12D1FCC179500F91E1C /* Main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cc; path = ../../Main.cc; sourceTree = "<group>"; };
+		AE6AF12E1FCC179500F91E1C /* Registry.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Registry.cc; path = ../../Registry.cc; sourceTree = "<group>"; };
+		AE6AF12F1FCC179500F91E1C /* Registry.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Registry.hh; path = ../../Registry.hh; sourceTree = "<group>"; };
+		AE6AF1301FCC179600F91E1C /* Action.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Action.cc; path = ../../Action.cc; sourceTree = "<group>"; };
+		AE6AF1311FCC179600F91E1C /* Game.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cc; path = ../../Game.cc; sourceTree = "<group>"; };
+		AE6AF1321FCC179600F91E1C /* Settings.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Settings.hh; path = ../../Settings.hh; sourceTree = "<group>"; };
+		AE6AF1331FCC179600F91E1C /* Player.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cc; path = ../../Player.cc; sourceTree = "<group>"; };
+		AE6AF1341FCC179600F91E1C /* Game.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Game.hh; path = ../../Game.hh; sourceTree = "<group>"; };
+		AE6AF1351FCC179600F91E1C /* State.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = State.cc; path = ../../State.cc; sourceTree = "<group>"; };
+		AE6AF1361FCC179600F91E1C /* Info.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Info.hh; path = ../../Info.hh; sourceTree = "<group>"; };
+		AE6AF1371FCC179600F91E1C /* State.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = State.hh; path = ../../State.hh; sourceTree = "<group>"; };
+		AE6AF1381FCC179700F91E1C /* Info.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Info.cc; path = ../../Info.cc; sourceTree = "<group>"; };
+		AE6AF1391FCC179700F91E1C /* Settings.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Settings.cc; path = ../../Settings.cc; sourceTree = "<group>"; };
+		AE6AF13A1FCC179700F91E1C /* Utils.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cc; path = ../../Utils.cc; sourceTree = "<group>"; };
+		AE6AF13B1FCC179700F91E1C /* Random.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Random.hh; path = ../../Random.hh; sourceTree = "<group>"; };
+		AE6AF1481FCC17AC00F91E1C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../Makefile; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE01B51A1FC81B5D00E746A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE01B5141FC81B5D00E746A4 = {
+			isa = PBXGroup;
+			children = (
+				AE01B51F1FC81B5D00E746A4 /* Joc EDA 2017 */,
+				AE01B51E1FC81B5D00E746A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE01B51E1FC81B5D00E746A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE01B51D1FC81B5D00E746A4 /* Joc EDA 2017 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE01B51F1FC81B5D00E746A4 /* Joc EDA 2017 */ = {
+			isa = PBXGroup;
+			children = (
+				AE01B5271FC81B8B00E746A4 /* AImcasellas.cc */,
+				AE01B5291FC81BC300E746A4 /* AIDemo.cc */,
+				AE6AF1301FCC179600F91E1C /* Action.cc */,
+				AE6AF12B1FCC179500F91E1C /* Action.hh */,
+				AE6AF12A1FCC179500F91E1C /* Board.cc */,
+				AE6AF1251FCC179500F91E1C /* Board.hh */,
+				AE6AF1311FCC179600F91E1C /* Game.cc */,
+				AE6AF1341FCC179600F91E1C /* Game.hh */,
+				AE6AF1381FCC179700F91E1C /* Info.cc */,
+				AE6AF1361FCC179600F91E1C /* Info.hh */,
+				AE6AF12D1FCC179500F91E1C /* Main.cc */,
+				AE6AF1331FCC179600F91E1C /* Player.cc */,
+				AE6AF1281FCC179500F91E1C /* Player.hh */,
+				AE6AF12C1FCC179500F91E1C /* Random.cc */,
+				AE6AF13B1FCC179700F91E1C /* Random.hh */,
+				AE6AF12E1FCC179500F91E1C /* Registry.cc */,
+				AE6AF12F1FCC179500F91E1C /* Registry.hh */,
+				AE6AF1391FCC179700F91E1C /* Settings.cc */,
+				AE6AF1321FCC179600F91E1C /* Settings.hh */,
+				AE6AF1351FCC179600F91E1C /* State.cc */,
+				AE6AF1371FCC179600F91E1C /* State.hh */,
+				AE6AF1271FCC179500F91E1C /* Structs.cc */,
+				AE6AF1261FCC179500F91E1C /* Structs.hh */,
+				AE6AF13A1FCC179700F91E1C /* Utils.cc */,
+				AE6AF1291FCC179500F91E1C /* Utils.hh */,
+				AE6AF1481FCC17AC00F91E1C /* Makefile */,
+			);
+			path = "Joc EDA 2017";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE01B51C1FC81B5D00E746A4 /* Joc EDA 2017 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE01B5241FC81B5D00E746A4 /* Build configuration list for PBXNativeTarget "Joc EDA 2017" */;
+			buildPhases = (
+				AE01B5191FC81B5D00E746A4 /* Sources */,
+				AE01B51A1FC81B5D00E746A4 /* Frameworks */,
+				AE01B51B1FC81B5D00E746A4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Joc EDA 2017";
+			productName = "Joc EDA 2017";
+			productReference = AE01B51D1FC81B5D00E746A4 /* Joc EDA 2017 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE01B5151FC81B5D00E746A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Marc Casellas";
+				TargetAttributes = {
+					AE01B51C1FC81B5D00E746A4 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AE01B5181FC81B5D00E746A4 /* Build configuration list for PBXProject "Joc EDA 2017" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AE01B5141FC81B5D00E746A4;
+			productRefGroup = AE01B51E1FC81B5D00E746A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE01B51C1FC81B5D00E746A4 /* Joc EDA 2017 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE01B5191FC81B5D00E746A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6AF13C1FCC179700F91E1C /* Structs.cc in Sources */,
+				AE01B5281FC81B8B00E746A4 /* AImcasellas.cc in Sources */,
+				AE6AF1411FCC179700F91E1C /* Action.cc in Sources */,
+				AE6AF1471FCC179700F91E1C /* Utils.cc in Sources */,
+				AE6AF1431FCC179700F91E1C /* Player.cc in Sources */,
+				AE6AF1461FCC179700F91E1C /* Settings.cc in Sources */,
+				AE6AF13F1FCC179700F91E1C /* Main.cc in Sources */,
+				AE6AF13E1FCC179700F91E1C /* Random.cc in Sources */,
+				AE6AF1421FCC179700F91E1C /* Game.cc in Sources */,
+				AE6AF1441FCC179700F91E1C /* State.cc in Sources */,
+				AE6AF1401FCC179700F91E1C /* Registry.cc in Sources */,
+				AE6AF13D1FCC179700F91E1C /* Board.cc in Sources */,
+				AE6AF1491FCC17AC00F91E1C /* Makefile in Sources */,
+				AE6AF1451FCC179700F91E1C /* Info.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AE01B5221FC81B5D00E746A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AE01B5231FC81B5D00E746A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AE01B5251FC81B5D00E746A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AE01B5261FC81B5D00E746A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE01B5181FC81B5D00E746A4 /* Build configuration list for PBXProject "Joc EDA 2017" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE01B5221FC81B5D00E746A4 /* Debug */,
+				AE01B5231FC81B5D00E746A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE01B5241FC81B5D00E746A4 /* Build configuration list for PBXNativeTarget "Joc EDA 2017" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE01B5251FC81B5D00E746A4 /* Debug */,
+				AE01B5261FC81B5D00E746A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE01B5151FC81B5D00E746A4 /* Project object */;
+}
