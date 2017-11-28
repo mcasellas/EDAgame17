@@ -30,24 +30,21 @@ struct PLAYER_NAME : public Player {
     
     map<int, Pos> ciutats;
     
+    double distancia (Pos a, Pos b){
+        return sqrt(abs(a.i-b.i)*abs(a.i-b.i) + abs(a.j-b.j)*abs(a.j-b.j));
+    }
+    
     Dir calc_direc(Pos posic, map<int, Pos> citys) {
-        cerr << "------" << endl;
-        cerr << "ork a " << posic.i << ' ' << posic.j << endl;
-        
-        Pos propera; // Posició de la ciutat més propera al ork
-        double dist;
-        
+        Pos propera; // Posició de la ciutat més propera a l'ork
         for (map<int,Pos>::const_iterator it = citys.begin(); it != citys.end(); it++) {
             if (it == citys.begin()) propera = it->second;
             else {
-                if (abs((it->second).i - posic.i) < abs(propera.i - posic.i) and abs((it->second).j - posic.j) < abs(propera.j - posic.j)){
-                    propera = it->second;
-                }
+                Pos cand = it->second;
+                if (distancia(posic, it->second) < distancia(posic, propera)) propera = it->second;
+                
             }
             
         }
-        
-        cerr << "la ciutat més propera és " << propera.i << " " << propera.j << endl;
         
         if (propera.i < posic.i) return TOP;
         else if (propera.i > posic.i) return BOTTOM;
@@ -57,21 +54,11 @@ struct PLAYER_NAME : public Player {
     }
     
     void move(int id) {
-       
         Unit u = unit(id); // Obtenim la unitat
         Pos pos = u.pos; // La posició actual de la unitat
-        
-       
             Dir direc = calc_direc(pos, ciutats);
-            // TEST
-            cerr << "ork " << id << " va cap a " << direc << endl;
-            
-  
-                execute(Command(id, direc));
-                return;
-        
-        
-        
+            execute(Command(id, direc));
+            return;
     }
     
     
@@ -100,14 +87,10 @@ struct PLAYER_NAME : public Player {
           
           
           for (int i = 0; i < rows(); ++i) { // Busquem la ciutat més propera
-              if (i < 10) cout << ' ';
-              cout << i;
               for (int j = 0; j < cols(); ++j) {
-                  
+
                   Cell c = cell(i,j);
-                  if (c.city_id != -1) cout << 'C';
-                  else cout << '.';
-       
+ 
                   if (c.city_id != -1) {
                       Pos posic;
                       posic.i = i;
@@ -116,14 +99,13 @@ struct PLAYER_NAME : public Player {
                       ciutats[cell(i,j).city_id] = posic;
                   }
               }
-              cout << endl;
           }
           
       }
       
       vecint my_orks = orks(me());
       
-    
+      // Moure tots els orks
       for (int k = 0; k < my_orks.size(); ++k){
           cerr << "es mou " << my_orks[k] << endl;
           move(my_orks[k]); // movem ork a ork
