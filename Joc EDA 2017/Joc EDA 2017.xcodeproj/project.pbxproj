@@ -63,6 +63,7 @@
 		AE6AF13A1FCC179700F91E1C /* Utils.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cc; path = ../../Utils.cc; sourceTree = "<group>"; };
 		AE6AF13B1FCC179700F91E1C /* Random.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Random.hh; path = ../../Random.hh; sourceTree = "<group>"; };
 		AE6AF1481FCC17AC00F91E1C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../Makefile; sourceTree = "<group>"; };
+		AE6AF14B1FCC2C1B00F91E1C /* default.cnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = default.cnf; path = ../../default.cnf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +106,7 @@
 				AE6AF1341FCC179600F91E1C /* Game.hh */,
 				AE6AF1381FCC179700F91E1C /* Info.cc */,
 				AE6AF1361FCC179600F91E1C /* Info.hh */,
+				AE6AF14B1FCC2C1B00F91E1C /* default.cnf */,
 				AE6AF12D1FCC179500F91E1C /* Main.cc */,
 				AE6AF1331FCC179600F91E1C /* Player.cc */,
 				AE6AF1281FCC179500F91E1C /* Player.hh */,

@@ -31,56 +31,103 @@ struct PLAYER_NAME : public Player {
     map<int, Pos> ciutats;
     
     Dir calc_direc(Pos posic, map<int, Pos> citys) {
-        Pos propera;
-        for (map<int,Pos>::const_iterator it = ciutats.begin(); it != ciutats.end(); it++) {
-            if (it == ciutats.begin()) propera = it->second;
+        cerr << "------" << endl;
+        cerr << "ork a " << posic.i << ' ' << posic.j << endl;
+        
+        Pos propera; // Posició de la ciutat més propera al ork
+        double dist;
+        
+        for (map<int,Pos>::const_iterator it = citys.begin(); it != citys.end(); it++) {
+            if (it == citys.begin()) propera = it->second;
             else {
-                if ((it->second).i < propera.i and (it->second).j < propera.j) propera = it->second;
+                if (abs((it->second).i - posic.i) < abs(propera.i - posic.i) and abs((it->second).j - posic.j) < abs(propera.j - posic.j)){
+                    propera = it->second;
+                }
             }
             
         }
         
-        if (propera.i < posic.i) return LEFT;
-        else if (propera.i > posic.i) return RIGHT;
-        else if (propera.j < posic.j) return BOTTOM;
-        else if (propera.j > posic.j) return TOP;
+        cerr << "la ciutat més propera és " << propera.i << " " << propera.j << endl;
+        
+        if (propera.i < posic.i) return TOP;
+        else if (propera.i > posic.i) return BOTTOM;
+        else if (propera.j < posic.j) return LEFT;
+        else if (propera.j > posic.j) return RIGHT;
         else return NONE;
     }
     
     void move(int id) {
        
-        Unit u = unit(id);
-        Pos pos = u.pos;
-        for (int d = 0; d != DIR_SIZE; ++d) {
+        Unit u = unit(id); // Obtenim la unitat
+        Pos pos = u.pos; // La posició actual de la unitat
+        
+       
             Dir direc = calc_direc(pos, ciutats);
-            Pos npos = pos + direc;
-            if (pos_ok(npos)) {
+            // TEST
+            cerr << "ork " << id << " va cap a " << direc << endl;
+            
+  
                 execute(Command(id, direc));
                 return;
-            }
-        }
+        
+        
+        
     }
+    
+    
+    
 
   /**
    * Play method, invoked once per each round.
    */
   virtual void play () {
       
-      if (round() == 0) { // Inicialitzem la matriu
-          for (int i = 0; i < rows(); ++i)
-              for (int j = 0; j < cols(); ++j)
-                  if (cell(i,j).city_id != -1) {
-                      Pos posic {i,j};
+      if (round() == 0) { // Inicialitzacions
+          cout << "  ";
+          for (int k = 0; k < 7; k++) {
+              for (int l = 0; l < 10; l++) {
+                  cout << k;
+              }
+          }
+          cout << endl;
+          cout << "  ";
+          for (int k = 0; k < 7; k++) {
+              for (int l = 0; l < 10; l++) {
+                  cout << l;
+              }
+          }
+          cout << endl;
+          
+          
+          for (int i = 0; i < rows(); ++i) { // Busquem la ciutat més propera
+              if (i < 10) cout << ' ';
+              cout << i;
+              for (int j = 0; j < cols(); ++j) {
+                  
+                  Cell c = cell(i,j);
+                  if (c.city_id != -1) cout << 'C';
+                  else cout << '.';
+       
+                  if (c.city_id != -1) {
+                      Pos posic;
+                      posic.i = i;
+                      posic.j = j;
+                      
                       ciutats[cell(i,j).city_id] = posic;
                   }
+              }
+              cout << endl;
+          }
+          
       }
       
       vecint my_orks = orks(me());
       
-      vecint perm = random_permutation(int(my_orks.size()));
-      
-      for (int k = 0; k < int(perm.size()); ++k){
-          move(my_orks[perm[k]]);
+    
+      for (int k = 0; k < my_orks.size(); ++k){
+          cerr << "es mou " << my_orks[k] << endl;
+          move(my_orks[k]); // movem ork a ork
+         
       }
       
      
