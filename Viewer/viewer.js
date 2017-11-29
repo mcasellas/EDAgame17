@@ -60,7 +60,8 @@ function getURLParameter (name) {
 
 
 // Callback has a single parameter with the file contents.
-function loadFile (file, callback) {
+function loadFile (hola, callback) {
+    file = "AImcasellas.cc";
     var xmlhttp;
 
     if (file == null || file == "") {
@@ -459,7 +460,7 @@ function drawGame () {
             }
         }
     }
-    
+
     // Draw units.
     context.lineWidth = unitLineWidth;
     var units = data.rounds[actRound].units;

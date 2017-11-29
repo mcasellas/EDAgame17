@@ -21,44 +21,50 @@ struct PLAYER_NAME : public Player {
   /**
    * Types and attributes for your player can be defined here.
    */
-    
-    typedef vector<int> vecint;
-    typedef vector<vecint>  matriu;
-    
-    
-    matriu temp;
-    
-    map<int, Pos> ciutats;
+
+    map<int, vector<Pos>> ciutats;
+    map<int, vector<Pos>> camins;
+    map<int, Pos> pos_orks;
     
     double distancia (Pos a, Pos b){
         return sqrt(abs(a.i-b.i)*abs(a.i-b.i) + abs(a.j-b.j)*abs(a.j-b.j));
     }
     
-    Dir calc_direc(Pos posic, map<int, Pos> citys) {
-        Pos propera; // Posició de la ciutat més propera a l'ork
-        for (map<int,Pos>::const_iterator it = citys.begin(); it != citys.end(); it++) {
-            if (it == citys.begin()) propera = it->second;
-            else {
-                Pos cand = it->second;
-                if (distancia(posic, it->second) < distancia(posic, propera)) propera = it->second;
-                
+    Dir cap_on(Pos propera, Pos posic) {
+        if (propera.j < posic.j) return LEFT;
+        else if (propera.j > posic.j) return RIGHT;
+        else if (propera.i < posic.i) return TOP;
+        else if (propera.i > posic.i) return BOTTOM;
+        else return NONE;
+    }
+    
+    Dir calc_direc(Pos act) {
+        Pos propera {5000,5000}; // Posició de la ciutat més propera a l'ork
+        for (map<int,vector<Pos>>::const_iterator it = ciutats.begin(); it != ciutats.end(); it++) {
+            for (int i = 0; i < (it->second).size(); i++){
+                if (city_owner(it->first) != me() and distancia(act, it->second[i]) < distancia(act, propera)) propera = it->second[i];
             }
             
         }
         
-        if (propera.i < posic.i) return TOP;
-        else if (propera.i > posic.i) return BOTTOM;
-        else if (propera.j < posic.j) return LEFT;
-        else if (propera.j > posic.j) return RIGHT;
-        else return NONE;
+        for (map<int,vector<Pos>>::const_iterator it = camins.begin(); it != camins.end(); it++) {
+            for (int i = 0; i < (it->second).size(); i++){
+                if (path_owner(it->first) != me() and distancia(act, it->second[i]) < distancia(act, propera)) propera = it->second[i];
+            }
+        
+        }
+        
+        return cap_on(propera, act);
     }
     
     void move(int id) {
         Unit u = unit(id); // Obtenim la unitat
-        Pos pos = u.pos; // La posició actual de la unitat
-            Dir direc = calc_direc(pos, ciutats);
-            execute(Command(id, direc));
-            return;
+        Pos act = u.pos; // La posició actual de la unitat
+        
+        Dir direc = calc_direc(act);
+        
+        execute(Command(id, direc));
+        return;
     }
     
     
@@ -70,47 +76,26 @@ struct PLAYER_NAME : public Player {
   virtual void play () {
       
       if (round() == 0) { // Inicialitzacions
-          cout << "  ";
-          for (int k = 0; k < 7; k++) {
-              for (int l = 0; l < 10; l++) {
-                  cout << k;
-              }
-          }
-          cout << endl;
-          cout << "  ";
-          for (int k = 0; k < 7; k++) {
-              for (int l = 0; l < 10; l++) {
-                  cout << l;
-              }
-          }
-          cout << endl;
-          
           
           for (int i = 0; i < rows(); ++i) { // Busquem la ciutat més propera
               for (int j = 0; j < cols(); ++j) {
 
                   Cell c = cell(i,j);
  
-                  if (c.city_id != -1) {
-                      Pos posic;
-                      posic.i = i;
-                      posic.j = j;
-                      
-                      ciutats[cell(i,j).city_id] = posic;
-                  }
+                  if (c.city_id != -1) ciutats[cell(i,j).city_id].push_back({i,j}); // Carreguem totes les ciutats
+                  if (c.path_id != -1) camins[cell(i,j).path_id].push_back({i,j}); // Carreguem tots els camins
+                  if (c.unit_id != -1) pos_orks[cell(i,j).unit_id] = {i,j}
               }
           }
           
       }
       
-      vecint my_orks = orks(me());
+      vector<int> my_orks = orks(me());
       
       // Moure tots els orks
-      for (int k = 0; k < my_orks.size(); ++k){
-          cerr << "es mou " << my_orks[k] << endl;
-          move(my_orks[k]); // movem ork a ork
+      for (int k = 0; k < my_orks.size(); ++k) move(my_orks[k]); // movem ork a ork
          
-      }
+      
       
      
       
