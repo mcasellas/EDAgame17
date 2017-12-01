@@ -43,7 +43,11 @@ LDFLAGS  = -std=c++11                            $(PROFILEFLAGS) $(DEBUGFLAGS) -
 OBJ = Structs.o Settings.o State.o Info.o Random.o Board.o Action.o Player.o Registry.o Utils.o
 
 all: Game
+
+ex: Game
 	./Game mcasellas Dummy Dummy Dummy -s 30 -i default.cnf -o default.out
+
+
 
 clean:
 	rm -rf Game  *.o *.exe Makefile.deps

@@ -40,8 +40,8 @@ var cell_colors = {
 
 
 var player_colors = {
-    0: "#FF0000",  // Red.
-    1: "#FFCC00",  // Golden.
+    0: "#FFCC00",  // Red.
+    1: "#FF0000",  // Golden.
     2: "#0080FF",  // Deep blue.
     3: "#FFCCFF"   // Pink.
 }
