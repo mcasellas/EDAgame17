@@ -45,9 +45,13 @@ struct PLAYER_NAME : public Player {
     
     Graf G;
     
-    vector<int,queue<Pos>> ork_rec; // vector de recorreguts
     
-    stack<Pos> dijkstra(int u, int v, stack<Pos>& result) {
+    vector<pair<int, stack<int>> > ork_rec; // vector de recorreguts
+    
+    void dijkstra(int u, int v, stack<int>& result) {
+       // cerr << "----" << endl;
+       //  cerr << "origen " << u/70 << ',' << u%70 << endl;
+        //cerr << "fi " << v/70 << ',' << v%70 << endl;
         int n = int(G.size());
         vector<int> distance(n, numeric_limits<int>::max()); // Infinite
         distance[u] = 0;
@@ -70,15 +74,14 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
-       
         
         while (whereFrom[v] != -1) {
-            result.push({v/cols(),v%cols()});
+            //cerr << "RESULT " << v/70 << ',' << v%70 << endl;
+            result.push(v);
             v = whereFrom[v];
         }
-        result.push({v/cols(),v%cols()});
-        
-      
+        result.push(v);
+       
     }
     
     
@@ -97,62 +100,78 @@ struct PLAYER_NAME : public Player {
             }
             
         }
+        cerr << "id  " << id << endl;
+        cerr << "act  " << act.i << ',' << act.j << endl;
+        cerr << "propera  " << propera.i << ',' << propera.j << endl;
+        cerr << ork_rec.size() << endl;
         
-        cerr << "posicio: " << act.i << ',' << act.j << " to " << propera.i << ',' << propera.j << endl;
+        dijkstra(act.i*cols()+act.j, propera.i*cols()+propera.j, ork_rec[id].second);
         
-        dijkstra(act.i*cols()+act.j, propera.i*cols()+propera.j, ork_rec[id]->second);
-        
-        //return cap_on(propera, act);
+       
         
     }
     
-    /*void move(int id) {
-        Unit u = unit(id); // Obtenim la unitat
-        Pos act = u.pos; // La posició actual de la unitat
-        Dir direc = calc_direc(act);
-        Pos valid = act + direc;
-        if (cell(valid).unit_id == -1 or unit(cell(valid).unit_id).health <= u.health){
-            execute(Command(id, direc));
-            return;
-        }
-    }*/
-    
     
     void move(int id) {
+        cerr << "ork " << id << endl;
         Unit u = unit(id); // Obtenim la unitat
         Pos act = u.pos; // La posició actual de la unitat
+        
         calc_direc(act,id);
-        Pos valid = act + direc;
-        if (cell(valid).unit_id == -1 or unit(cell(valid).unit_id).health <= u.health){
-            execute(Command(id, direc));
-            return;
+        cerr << "ork " << id << endl;
+        if (!(ork_rec[id].second).empty()) {
+             (ork_rec[id].second).pop();
+       
+            int num = (ork_rec[id].second).top();
+            (ork_rec[id].second).pop();
+            
+            cerr << "seguent " << num/cols() << ',' << num%cols() << endl;
+            cerr << "actual " << act.i << ',' << act.j << endl;
+            
+           
+          
+
+            Dir direc = cap_on({num/cols(), num%cols()}, act);
+            
+            
+            Pos valid = act + direc;
+            if (cell(valid).unit_id == -1 or unit(cell(valid).unit_id).health <= u.health){
+                
+                execute(Command(id, direc));
+                
+                return;
+            }
+            
         }
+        
+        else return;
     }
     
     /**
      * Play method, invoked once per each round.
      */
     virtual void play () {
+        vector<int> my_orks = orks(me());
+        vector<int> perm = random_permutation(int(my_orks.size()));
         
+        ork_rec = vector<pair<int, stack<int>> > (my_orks.size());
         
         if (round() == 0) { // Inicialitzacions
             
+            
+            
             G = Graf(rows()*rows());
+            
+          
             
             for (int i = 0; i < rows(); ++i) { // Busquem la ciutat més propera
                 for (int j = 0; j < cols(); ++j) {
-                    
-                    
                     Cell c = cell(i,j);
                     
                     if (c.city_id != -1) ciutats[cell(i,j).city_id].push_back({i,j}); // Carreguem totes les ciutats
                     if (c.path_id != -1) camins[cell(i,j).path_id].push_back({i,j}); // Carreguem tots els camins
                     if (c.unit_id != -1) pos_orks[cell(i,j).unit_id] = {i,j};
                     
-                    
-                    
-                    
-                   
                     if (cell(i,j).type != 0) {
                         if (j < cols()-1 and cell(i,j+1).type != 0) {
                             G[i*cols()+j].push_back({cost(cell(i,j+1).type), i*cols()+j+1});
@@ -163,23 +182,15 @@ struct PLAYER_NAME : public Player {
                             G[(i+1)*cols()+j].push_back({cost(cell(i,j).type), i*cols()+j });
                         }
                     }
-                    
-                    
                 }
             }
-            
-            
         }
-        
-        
-        
-        vector<int> my_orks = orks(me());
-        vector<int> perm = random_permutation(int(my_orks.size()));
+
         
         // Moure tots els orks
         for (int k = 0; k < my_orks.size(); ++k) move(my_orks[perm[k]]); // movem ork a ork
         
-        
+       
         
         
         
