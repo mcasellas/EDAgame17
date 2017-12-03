@@ -45,8 +45,7 @@ struct PLAYER_NAME : public Player {
     
     Graf G;
     
-    
-    vector<pair<int, stack<int>> > ork_rec; // vector de recorreguts
+    map <int, stack<int> > ork_rec; // stack de recorreguts
     
     void dijkstra(int u, int v, stack<int>& result) {
        // cerr << "----" << endl;
@@ -100,12 +99,11 @@ struct PLAYER_NAME : public Player {
             }
             
         }
-        cerr << "id  " << id << endl;
-        cerr << "act  " << act.i << ',' << act.j << endl;
-        cerr << "propera  " << propera.i << ',' << propera.j << endl;
-        cerr << ork_rec.size() << endl;
+        //cerr << "id  " << id << endl;
+        //cerr << "act  " << act.i << ',' << act.j << endl;
+        //cerr << "propera  " << propera.i << ',' << propera.j << endl;
         
-        dijkstra(act.i*cols()+act.j, propera.i*cols()+propera.j, ork_rec[id].second);
+        dijkstra(act.i*cols()+act.j, propera.i*cols()+propera.j, ork_rec[id]);
         
        
         
@@ -113,26 +111,25 @@ struct PLAYER_NAME : public Player {
     
     
     void move(int id) {
-        cerr << "ork " << id << endl;
+        //cerr << "ork " << id << endl;
         Unit u = unit(id); // Obtenim la unitat
         Pos act = u.pos; // La posició actual de la unitat
         
         calc_direc(act,id);
-        cerr << "ork " << id << endl;
-        if (!(ork_rec[id].second).empty()) {
-             (ork_rec[id].second).pop();
-       
-            int num = (ork_rec[id].second).top();
-            (ork_rec[id].second).pop();
-            
-            cerr << "seguent " << num/cols() << ',' << num%cols() << endl;
-            cerr << "actual " << act.i << ',' << act.j << endl;
-            
+       if (!(ork_rec[id]).empty())  (ork_rec[id]).pop();
+        
+        if (!(ork_rec[id]).empty()) {
            
-          
-
-            Dir direc = cap_on({num/cols(), num%cols()}, act);
+            //cerr << "ork " << id << endl;
+            int num = (ork_rec[id]).top();
+            (ork_rec[id]).pop();
             
+            //err << "seguent " << num/cols() << ',' << num%cols() << endl;
+            //cerr << "actual " << act.i << ',' << act.j << endl;
+            
+            //cerr << "cap on" << num/cols() << ',' << num%cols() << endl;
+            
+            Dir direc = cap_on({num/cols(), num%cols()}, act);
             
             Pos valid = act + direc;
             if (cell(valid).unit_id == -1 or unit(cell(valid).unit_id).health <= u.health){
@@ -151,10 +148,7 @@ struct PLAYER_NAME : public Player {
      * Play method, invoked once per each round.
      */
     virtual void play () {
-        vector<int> my_orks = orks(me());
-        vector<int> perm = random_permutation(int(my_orks.size()));
-        
-        ork_rec = vector<pair<int, stack<int>> > (my_orks.size());
+      
         
         if (round() == 0) { // Inicialitzacions
             
@@ -186,14 +180,11 @@ struct PLAYER_NAME : public Player {
             }
         }
 
+        vector<int> my_orks = orks(me());
+        vector<int> perm = random_permutation(int(my_orks.size()));
         
         // Moure tots els orks
         for (int k = 0; k < my_orks.size(); ++k) move(my_orks[perm[k]]); // movem ork a ork
-        
-       
-        
-        
-        
         
     }
     

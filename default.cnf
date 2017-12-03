@@ -1,8 +1,8 @@
 OrkIsland 1.0
 nb_players          	    4
-rows                	   70
-cols                	   70
-nb_rounds           	  50
+rows                	   1000
+cols                	   1000
+nb_rounds           	  500
 initial_health   	  100
 nb_orks			   15
 cost_grass		    1
