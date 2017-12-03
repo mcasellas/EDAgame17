@@ -25,7 +25,11 @@ struct PLAYER_NAME : public Player {
     map<int, vector<Pos>> ciutats;
     map<int, vector<Pos>> camins;
     map<int, Pos> pos_orks;
-
+    
+    typedef pair<int, Pos> fila;        // Cost, node
+    typedef vector< vector<fila> > graf;  // graf amb pesos
+    
+    graf G;
     
     double distancia (Pos a, Pos b){
         return sqrt(abs(a.i-b.i)*abs(a.i-b.i) + abs(a.j-b.j)*abs(a.j-b.j));
@@ -70,6 +74,66 @@ struct PLAYER_NAME : public Player {
         }
     }
     
+    
+    void dijkstra(Pos inicial, Pos objectiu) {
+       
+        map <Pos, int> distancia;
+        
+        distancia[inicial] = 0;
+        
+        map <Pos, bool> visitats;
+        
+        map <Pos, int> whereFrom;
+        
+        priority_queue< fila, vector< fila >, greater< fila > > pQ;
+        
+        pQ.push({0, inicial});
+        
+        while (!pQ.empty() && pQ.top().second != objectiu) {
+            
+            Pos new_node = pQ.top().second;
+            
+            if (distancia.find(new_node) == distancia.end()) distancia[new_node] = numeric_limits<int>::max(); // Assignem infinit
+            
+            pQ.pop();
+            if (visitats.find(new_node) == visitats.end()) {
+                visitats[new_node] = true;
+                for (int i = 0; i < G[new_node.j].size(); ++i) {
+                    
+                    pair<int, Pos> aux = G[new_node.i][i];
+                    if (distancia[new_node] + aux.first < distancia[aux.second]) {
+                        distancia[aux.second] = distancia[new_node] + aux.first;
+                        whereFrom[new_node];
+                        
+                        pQ.push({distancia[aux.second], aux.second});
+                    }
+                }
+            }
+        }
+        if (pQ.empty()) {
+            cout << "no path from " << inicial.i << ',' << inicial.j << " to " << objectiu.i << ',' << objectiu.j << endl;
+            return;
+        }
+        stack<Pos> result;
+        
+        while (whereFrom.find(objectiu) != whereFrom.end()) {
+            result.push(objectiu);
+            objectiu = whereFrom.find(objectiu)->first;
+        }
+        
+        result.push(objectiu);
+        
+        cout << result.top();
+        
+        result.pop();
+        
+        while (!result.empty()) {
+            cout << " " << result.top();
+            result.pop();
+        }
+        cout << endl;
+    }
+    
 
   /**
    * Play method, invoked once per each round.
@@ -80,19 +144,24 @@ struct PLAYER_NAME : public Player {
           
           for (int i = 0; i < rows(); ++i) { // Busquem la ciutat més propera
               for (int j = 0; j < cols(); ++j) {
-
-                  Cell c = cell(i,j);
- 
+                  /*
+                  
                   if (c.city_id != -1) ciutats[cell(i,j).city_id].push_back({i,j}); // Carreguem totes les ciutats
                   if (c.path_id != -1) camins[cell(i,j).path_id].push_back({i,j}); // Carreguem tots els camins
                   if (c.unit_id != -1) pos_orks[cell(i,j).unit_id] = {i,j};
-              }
+                */
+                if (cell(i,j).type != 0) {
+                    if (j < cols()-1 and cell(i,j+1).type != 0) G[i].push_back({cost(cell(i,j+1).type), {i,j+1}});
+                    if (i < rows()-1 and cell(i+1,j).type != 0) G[i].push_back({cost(cell(i+1,j).type), {i+1,j}});
+                  }
+                  
+                }
           }
           
       }
     
       vector<int> my_orks = orks(me());
-      vector<int> perm = random_permutation(my_orks.size());
+      vector<int> perm = random_permutation(int(my_orks.size()));
       
       // Moure tots els orks
       for (int k = 0; k < my_orks.size(); ++k) move(my_orks[perm[k]]); // movem ork a ork
