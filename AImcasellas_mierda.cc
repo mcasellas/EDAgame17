@@ -5,7 +5,7 @@
  * Write the name of your player and save this file
  * with the same name and .cc extension.
  */
-#define PLAYER_NAME mcasellas
+#define PLAYER_NAME mcasellas_v2
 
 
 struct PLAYER_NAME : public Player {
@@ -25,7 +25,7 @@ struct PLAYER_NAME : public Player {
     map<int, vector<Pos>> ciutats;
     map<int, vector<Pos>> camins;
     map<int, Pos> pos_orks;
-    
+   
     
     double distancia (Pos a, Pos b){
         return sqrt(abs(a.i-b.i)*abs(a.i-b.i) + abs(a.j-b.j)*abs(a.j-b.j));
@@ -40,49 +40,51 @@ struct PLAYER_NAME : public Player {
     }
     
     
+   
     typedef vector< pair<int, int> > Adj; // Distance - node
     typedef vector<Adj> Graf;
     
-    Graf G;
+    Graf mapa;
     
     map <int, stack<int> > ork_rec; // stack de recorreguts
     
     void dijkstra(int u, int v, stack<int>& result) {
-        int n = int(G.size());
+        int n = int(mapa.size());
         vector<int> distance(n, numeric_limits<int>::max()); // Infinite
         distance[u] = 0;
-        vector<bool> d(n, false);
-        vector<int> p(n, -1);
+        vector<bool> visited(n, false);
+        vector<int> whereFrom(n, -1);
         priority_queue< pair<int, int>, vector< pair<int, int> >, greater< pair<int, int> > > pQ;
         pQ.push({0, u});
         while (!pQ.empty() && pQ.top().second != v) {
-            int intermig = pQ.top().second;
+            int new_node = pQ.top().second;
             pQ.pop();
-            if (!d[intermig]) {
-                d[intermig] = true;
-                for (int i = 0; i < G[intermig].size(); ++i) {
-                    pair<int, int> aux = G[intermig][i];
-                    if (distance[intermig] + aux.first < distance[aux.second]) {
-                        distance[aux.second] = distance[intermig] + aux.first;
-                        p[aux.second] = intermig;
+            if (!visited[new_node]) {
+                visited[new_node] = true;
+                for (int i = 0; i < mapa[new_node].size(); ++i) {
+                    pair<int, int> aux = mapa[new_node][i];
+                    if (distance[new_node] + aux.first < distance[aux.second]) {
+                        distance[aux.second] = distance[new_node] + aux.first;
+                        whereFrom[aux.second] = new_node;
                         pQ.push({distance[aux.second], aux.second});
                     }
                 }
             }
         }
         
-        while (p[v] != -1) {
+        while (whereFrom[v] != -1) {
+            //cerr << "RESULT " << v/70 << ',' << v%70 << endl;
             result.push(v);
-            v = p[v];
+            v = whereFrom[v];
         }
         result.push(v);
-        
+       
     }
     
     
     
     void calc_direc(Pos act, int id) {
-        Pos propera {numeric_limits<int>::max(),numeric_limits<int>::max()}; // Inicialitzem la ciutat més propera a l'ork
+        Pos propera {5000,5000}; // Inicialitzem la ciutat més propera a l'ork
         for (map<int,vector<Pos>>::const_iterator it = camins.begin(); it != camins.end(); it++) {
             for (int i = 0; i < (it->second).size(); i++){
                 if (path_owner(it->first) != me() and distancia(act, it->second[i]) < distancia(act, propera)) propera = it->second[i];
@@ -101,7 +103,7 @@ struct PLAYER_NAME : public Player {
         
         dijkstra(act.i*cols()+act.j, propera.i*cols()+propera.j, ork_rec[id]);
         
-        
+       
         
     }
     
@@ -109,29 +111,30 @@ struct PLAYER_NAME : public Player {
     void move(int id) {
         //cerr << "ork " << id << endl;
         Unit u = unit(id); // Obtenim la unitat
-        Pos act = u.pos; // La posiciĂł actual de la unitat
+        Pos act = u.pos; // La posició actual de la unitat
         
         calc_direc(act,id);
         if (!(ork_rec[id]).empty())  (ork_rec[id]).pop();
         
         if (!(ork_rec[id]).empty()) {
-            
+           
             //cerr << "ork " << id << endl;
             int num = (ork_rec[id]).top();
             (ork_rec[id]).pop();
             
-            //err << "seguent " << num/cols() << ',' << num%cols() << endl;
-            //cerr << "actual " << act.i << ',' << act.j << endl;
-            
-            //cerr << "cap on" << num/cols() << ',' << num%cols() << endl;
-            
             Dir direc = cap_on({num/cols(), num%cols()}, act);
             
             Pos valid = act + direc;
-            if (cell(valid).unit_id == -1 or unit(cell(valid).unit_id).health <= u.health){
+            if (cell(valid).unit_id == -1 or (unit(cell(valid).unit_id).health <= u.health and unit(cell(valid).unit_id).player != me())){
                 
                 execute(Command(id, direc));
                 
+                return;
+            }
+            else {
+                Dir nova;
+                while ((nova = Dir(random(0, 4))) == direc);
+                execute(Command(id, nova));
                 return;
             }
             
@@ -144,13 +147,15 @@ struct PLAYER_NAME : public Player {
      * Play method, invoked once per each round.
      */
     virtual void play () {
-        
+      
         
         if (round() == 0) { // Inicialitzacions
             
-            G = Graf(rows()*rows());
             
-            for (int i = 0; i < rows(); ++i) { // Busquem la ciutat mĂŠs propera
+            
+            mapa = Graf(rows()*rows());
+        
+            for (int i = 0; i < rows(); ++i) { // Busquem la ciutat més propera
                 for (int j = 0; j < cols(); ++j) {
                     Cell c = cell(i,j);
                     
@@ -160,18 +165,18 @@ struct PLAYER_NAME : public Player {
                     
                     if (cell(i,j).type != 0) {
                         if (j < cols()-1 and cell(i,j+1).type != 0) {
-                            G[i*cols()+j].push_back({cost(cell(i,j+1).type), i*cols()+j+1});
-                            G[i*cols()+j+1].push_back({cost(cell(i,j).type), i*cols()+j});
+                            mapa[i*cols()+j].push_back({cost(cell(i,j+1).type), i*cols()+j+1});
+                            mapa[i*cols()+j+1].push_back({cost(cell(i,j).type), i*cols()+j});
                         }
                         if (i < rows()-1 and cell(i+1,j).type != 0) {
-                            G[i*cols()+j].push_back({cost(cell(i+1,j).type), (i+1)*cols()+j });
-                            G[(i+1)*cols()+j].push_back({cost(cell(i,j).type), i*cols()+j });
+                            mapa[i*cols()+j].push_back({cost(cell(i+1,j).type), (i+1)*cols()+j });
+                            mapa[(i+1)*cols()+j].push_back({cost(cell(i,j).type), i*cols()+j });
                         }
                     }
                 }
             }
         }
-        
+
         vector<int> my_orks = orks(me());
         vector<int> perm = random_permutation(int(my_orks.size()));
         

@@ -45,13 +45,13 @@ OBJ = Structs.o Settings.o State.o Info.o Random.o Board.o Action.o Player.o Reg
 all: Game
 
 ex: Game
-	./Game mcasellas Dummy Dummy Dummy -s 30 -i default.cnf -o default.out
+	./Game mcasellas_v2 Dummy Dummy Dummy -s 30 -i default.cnf -o default.out
 
 jo: Game
 	./Game mcasellas_v2 mcasellas mcasellas mcasellas -s 30 -i default.cnf -o default.out
 
 rob: Game
-	./Game mcasellas MrRobb MrRobb MrRobb -s 30 -i default.cnf -o default.out
+	./Game mcasellas_v2 MrRobb MrRobb MrRobb -s 30 -i default.cnf -o default.out
 
 
 clean:

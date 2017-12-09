@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE01B5281FC81B8B00E746A4 /* AImcasellas.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE01B5271FC81B8B00E746A4 /* AImcasellas.cc */; };
 		AE1CF6FE1FD4CFF8003802AF /* AImcasellas_v2.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE1CF6FD1FD4CFF7003802AF /* AImcasellas_v2.cc */; };
 		AE6AF13C1FCC179700F91E1C /* Structs.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1271FCC179500F91E1C /* Structs.cc */; };
 		AE6AF13D1FCC179700F91E1C /* Board.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF12A1FCC179500F91E1C /* Board.cc */; };
@@ -38,7 +37,6 @@
 
 /* Begin PBXFileReference section */
 		AE01B51D1FC81B5D00E746A4 /* Joc EDA 2017 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Joc EDA 2017"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE01B5271FC81B8B00E746A4 /* AImcasellas.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AImcasellas.cc; path = ../../AImcasellas.cc; sourceTree = "<group>"; };
 		AE01B5291FC81BC300E746A4 /* AIDemo.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIDemo.cc; path = ../../AIDemo.cc; sourceTree = "<group>"; };
 		AE1CF6FD1FD4CFF7003802AF /* AImcasellas_v2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AImcasellas_v2.cc; path = ../../AImcasellas_v2.cc; sourceTree = "<group>"; };
 		AE6AF1251FCC179500F91E1C /* Board.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Board.hh; path = ../../Board.hh; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 		AE01B51F1FC81B5D00E746A4 /* Joc EDA 2017 */ = {
 			isa = PBXGroup;
 			children = (
-				AE01B5271FC81B8B00E746A4 /* AImcasellas.cc */,
 				AE1CF6FD1FD4CFF7003802AF /* AImcasellas_v2.cc */,
 				AE01B5291FC81BC300E746A4 /* AIDemo.cc */,
 				AE6AF1301FCC179600F91E1C /* Action.cc */,
@@ -188,7 +185,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE6AF13C1FCC179700F91E1C /* Structs.cc in Sources */,
-				AE01B5281FC81B8B00E746A4 /* AImcasellas.cc in Sources */,
 				AE6AF1411FCC179700F91E1C /* Action.cc in Sources */,
 				AE6AF1471FCC179700F91E1C /* Utils.cc in Sources */,
 				AE6AF1431FCC179700F91E1C /* Player.cc in Sources */,

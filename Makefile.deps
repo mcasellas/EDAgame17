@@ -2,8 +2,8 @@ AIDemo.o: AIDemo.cc Player.hh Info.hh Settings.hh Structs.hh Utils.hh \
   Defs.hh State.hh Action.hh Random.hh Registry.hh
 AINull.o: AINull.cc Player.hh Info.hh Settings.hh Structs.hh Utils.hh \
   Defs.hh State.hh Action.hh Random.hh Registry.hh
-AImcasellas.o: AImcasellas.cc Player.hh Info.hh Settings.hh Structs.hh \
-  Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
+AImcasellas_mierda.o: AImcasellas_mierda.cc Player.hh Info.hh Settings.hh \
+  Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
 AImcasellas_v2.o: AImcasellas_v2.cc Player.hh Info.hh Settings.hh \
   Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
 Action.o: Action.cc Action.hh Structs.hh Utils.hh Defs.hh
