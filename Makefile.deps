@@ -1,3 +1,7 @@
+AI.o: AI.cc Player.hh Info.hh Settings.hh Structs.hh Utils.hh Defs.hh \
+  State.hh Action.hh Random.hh Registry.hh
+AIBackInBlack_.o: AIBackInBlack_.cc Player.hh Info.hh Settings.hh \
+  Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
 AIDemo.o: AIDemo.cc Player.hh Info.hh Settings.hh Structs.hh Utils.hh \
   Defs.hh State.hh Action.hh Random.hh Registry.hh
 AINull.o: AINull.cc Player.hh Info.hh Settings.hh Structs.hh Utils.hh \
@@ -5,6 +9,12 @@ AINull.o: AINull.cc Player.hh Info.hh Settings.hh Structs.hh Utils.hh \
 AImcasellas_mierda.o: AImcasellas_mierda.cc Player.hh Info.hh Settings.hh \
   Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
 AImcasellas_v2.o: AImcasellas_v2.cc Player.hh Info.hh Settings.hh \
+  Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
+AImcasellas_v3.o: AImcasellas_v3.cc Player.hh Info.hh Settings.hh \
+  Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
+AImcasellas_v4.o: AImcasellas_v4.cc Player.hh Info.hh Settings.hh \
+  Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
+AImcasellas_v5.o: AImcasellas_v5.cc Player.hh Info.hh Settings.hh \
   Structs.hh Utils.hh Defs.hh State.hh Action.hh Random.hh Registry.hh
 Action.o: Action.cc Action.hh Structs.hh Utils.hh Defs.hh
 Board.o: Board.cc Board.hh Info.hh Settings.hh Structs.hh Utils.hh \

@@ -7,7 +7,7 @@
 DUMMY_OBJ = AIDummy.o.macOS
 
 # Add here any extra .o player files you want to link to the executable
-EXTRA_OBJ = AIMrRobb.o
+EXTRA_OBJ =
 
 # Configuration
 OPTIMIZE = 2 # Optimization level    (0 to 3)
@@ -45,10 +45,10 @@ OBJ = Structs.o Settings.o State.o Info.o Random.o Board.o Action.o Player.o Reg
 all: Game
 
 ex: Game
-	./Game mcasellas_v2 Dummy Dummy Dummy -s 30 -i default.cnf -o default.out
+	./Game mcasellas_v5 Dummy Dummy Dummy -s 5 -i default.cnf -o default.out
 
 jo: Game
-	./Game mcasellas_v2 mcasellas mcasellas mcasellas -s 30 -i default.cnf -o default.out
+	./Game mcasellas_v5 BackInBlack_ BackInBlack_ BackInBlack_ -s 1 -i default.cnf -o default.out
 
 rob: Game
 	./Game mcasellas_v2 MrRobb MrRobb MrRobb -s 30 -i default.cnf -o default.out

@@ -21,6 +21,10 @@
 		AE6AF1461FCC179700F91E1C /* Settings.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1391FCC179700F91E1C /* Settings.cc */; };
 		AE6AF1471FCC179700F91E1C /* Utils.cc in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF13A1FCC179700F91E1C /* Utils.cc */; };
 		AE6AF1491FCC17AC00F91E1C /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = AE6AF1481FCC17AC00F91E1C /* Makefile */; };
+		AEBA57E81FDF2A6200B575DE /* AImcasellas_v3.cc in Sources */ = {isa = PBXBuildFile; fileRef = AEBA57E71FDF2A6200B575DE /* AImcasellas_v3.cc */; };
+		AEBA57EA1FDF4CBF00B575DE /* AImcasellas_v4.cc in Sources */ = {isa = PBXBuildFile; fileRef = AEBA57E91FDF4CBF00B575DE /* AImcasellas_v4.cc */; };
+		AEBA57EC1FDF5F9D00B575DE /* AImcasellas_v5.cc in Sources */ = {isa = PBXBuildFile; fileRef = AEBA57EB1FDF5F9D00B575DE /* AImcasellas_v5.cc */; };
+		AED8364A1FE4800700BF7FED /* AIBackInBlack_.cc in Sources */ = {isa = PBXBuildFile; fileRef = AED836491FE4800600BF7FED /* AIBackInBlack_.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +68,10 @@
 		AE6AF13B1FCC179700F91E1C /* Random.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Random.hh; path = ../../Random.hh; sourceTree = "<group>"; };
 		AE6AF1481FCC17AC00F91E1C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../Makefile; sourceTree = "<group>"; };
 		AE6AF14B1FCC2C1B00F91E1C /* default.cnf */ = {isa = PBXFileReference; lastKnownFileType = text; name = default.cnf; path = ../../default.cnf; sourceTree = "<group>"; };
+		AEBA57E71FDF2A6200B575DE /* AImcasellas_v3.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AImcasellas_v3.cc; path = ../../AImcasellas_v3.cc; sourceTree = "<group>"; };
+		AEBA57E91FDF4CBF00B575DE /* AImcasellas_v4.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AImcasellas_v4.cc; path = ../../AImcasellas_v4.cc; sourceTree = "<group>"; };
+		AEBA57EB1FDF5F9D00B575DE /* AImcasellas_v5.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AImcasellas_v5.cc; path = ../../AImcasellas_v5.cc; sourceTree = "<group>"; };
+		AED836491FE4800600BF7FED /* AIBackInBlack_.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIBackInBlack_.cc; path = ../../AIBackInBlack_.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				AE1CF6FD1FD4CFF7003802AF /* AImcasellas_v2.cc */,
+				AEBA57E71FDF2A6200B575DE /* AImcasellas_v3.cc */,
+				AEBA57E91FDF4CBF00B575DE /* AImcasellas_v4.cc */,
+				AEBA57EB1FDF5F9D00B575DE /* AImcasellas_v5.cc */,
+				AED836491FE4800600BF7FED /* AIBackInBlack_.cc */,
 				AE01B5291FC81BC300E746A4 /* AIDemo.cc */,
 				AE6AF1301FCC179600F91E1C /* Action.cc */,
 				AE6AF12B1FCC179500F91E1C /* Action.hh */,
@@ -186,16 +198,20 @@
 			files = (
 				AE6AF13C1FCC179700F91E1C /* Structs.cc in Sources */,
 				AE6AF1411FCC179700F91E1C /* Action.cc in Sources */,
+				AEBA57EC1FDF5F9D00B575DE /* AImcasellas_v5.cc in Sources */,
 				AE6AF1471FCC179700F91E1C /* Utils.cc in Sources */,
 				AE6AF1431FCC179700F91E1C /* Player.cc in Sources */,
+				AED8364A1FE4800700BF7FED /* AIBackInBlack_.cc in Sources */,
 				AE6AF1461FCC179700F91E1C /* Settings.cc in Sources */,
 				AE6AF13F1FCC179700F91E1C /* Main.cc in Sources */,
 				AE6AF13E1FCC179700F91E1C /* Random.cc in Sources */,
 				AE6AF1421FCC179700F91E1C /* Game.cc in Sources */,
+				AEBA57E81FDF2A6200B575DE /* AImcasellas_v3.cc in Sources */,
 				AE6AF1441FCC179700F91E1C /* State.cc in Sources */,
 				AE6AF1401FCC179700F91E1C /* Registry.cc in Sources */,
 				AE6AF13D1FCC179700F91E1C /* Board.cc in Sources */,
 				AE6AF1491FCC17AC00F91E1C /* Makefile in Sources */,
+				AEBA57EA1FDF4CBF00B575DE /* AImcasellas_v4.cc in Sources */,
 				AE6AF1451FCC179700F91E1C /* Info.cc in Sources */,
 				AE1CF6FE1FD4CFF8003802AF /* AImcasellas_v2.cc in Sources */,
 			);
