@@ -1,9 +1,7 @@
 # Ork Island
 
-> by. Enric Rodríguez
-
 ## Nota:
-L'arxiu `go.sh` permet fer proves utilitzant un bucle amb diferentes seeds, jugadors i realitzant moltes rondes. 
+L'arxiu `go.sh` permet fer proves utilitzant un bucle amb diferentes seeds, jugadors i realitzant moltes rondes.
 
 ## 1. Game rules:
 The power of Sauron, the Lord of the Rings, is spreading throughout Middle Earth. People flee in terror from his bloodthirsty ork soldiers. As a result, once prosperous cities are now abandoned, and vast areas of land have become as lifeless as a desert. Sauron’s troops would quickly conquer all Middle Earth... were it not for their own greed and ambition.
