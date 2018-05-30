@@ -55,7 +55,7 @@ rob: Game
 
 
 clean:
-	rm -rf Game  *.o *.exe Makefile.deps
+	rm -rf Game  *.o *.exe *.out Makefile.deps
 
 Game:  $(OBJ) Game.o Main.o $(PLAYERS_OBJ)
 	$(CXX) $^ -o $@ $(LDFLAGS)
